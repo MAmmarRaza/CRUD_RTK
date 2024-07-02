@@ -8,6 +8,7 @@ import NoteModel from "./NoteModel";
 
 const Notes = () => {
     const data = useSelector((state) => state.notesApp.notes);
+    const loading=useSelector((state)=>state.notesApp.loading);
     const id = useSelector((c) => c.models.value);
     const noteData = data.filter((ele) => ele._id === id );
 

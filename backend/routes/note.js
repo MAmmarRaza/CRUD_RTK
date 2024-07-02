@@ -29,16 +29,18 @@ router.get('/fetchNoteById', async (req, res) => {
 
 // Route to handle the add post form submission
 router.post('/addNotes', async (req, res) => {
+    console.log(req.body);
+    const id="64b8d4fc4ff4bd32a86560c2";
     try {
         const data = new addNotes({
-            user:req.body.user,
+            user:id,
             title: req.body.title,
             description: req.body.description,
             tag: req.body.tag
         });
         // res.json(userData)
         await data.save();
-        res.status(200).json(data);
+        res.status(200).json({message:"data coming"});
     } catch (error) {
         
         res.status(500).json(error);
