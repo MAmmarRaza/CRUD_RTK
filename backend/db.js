@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 // const MongoUrl = "mongodb+srv://amirrafay135:XyImBf1YGtzacNcK@blogcluster.drny97g.mongodb.net/";
-const MongoUrl = "mongodb+srv://20ntucs1120:WU6TAoQiyFljPJxO@blog-cluster.bvblv9k.mongodb.net/iNotebook";
+const MongoUrl = "";
 
 // Database Connection
 const connectToMongo = async () => {
