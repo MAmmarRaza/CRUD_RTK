@@ -1,0 +1,30 @@
+service: nodejs-serverless-app
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1 # Specify your desired AWS region
+
+functions:
+  app:
+    handler: index.handler # Ensure the entry point matches your module export
+    timeout: 30
+    events:
+      - http:
+          path: /{proxy+} # Catch-all for routing all API Gateway requests to your Express app
+          method: ANY
+          cors: true # Enable CORS
+
+plugins:
+  - serverless-offline # Optional, for local development
+
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+
+custom:
+  serverless-offline:
+    httpPort: 4000 # Optional, for local development port
+

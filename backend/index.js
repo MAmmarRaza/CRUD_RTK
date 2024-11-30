@@ -5,6 +5,7 @@ const Auth = require("./routes/auth");
 const Note = require("./routes/note");
 const Student = require("./routes/students");
 const cors = require("cors");
+const serverless = require('serverless-http');
 
 // Database Connection
 connectToMongo();
@@ -27,6 +28,7 @@ app.use("/", Note); // All routes from Note will be prefixed with '/'
 app.use("/", Student); // All routes from Note will be prefixed with '/'
 
 // Start the server and listen on the specified port
-app.listen(port, () => {
-  console.log(`Server is running on port http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server is running on port http://localhost:${port}`);
+// });
+module.exports.handler = serverless(app);
